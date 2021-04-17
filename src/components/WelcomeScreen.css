@@ -1,0 +1,27 @@
+@import url('https://fonts.googleapis.com/css?family=Lato:400,600|Montserrat:400,600&display=swap');
+
+:root {
+	--primary-color: #00adb5;
+	--dark-color: #1b2027;
+	--lessdark-color: #283039;
+
+	--medium-color: #fffbad;
+	--light-color: #eeeeee;
+}
+
+.left-circle {
+	position: fixed;
+	top: 7vh;
+	left: 20vw;
+	height: 20vh;
+	width: 20vh;
+	background-color: var(--medium-color);
+	z-index: -2;
+	border-radius: 50%;
+}
+
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
