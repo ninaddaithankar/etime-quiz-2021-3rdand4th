@@ -22,6 +22,7 @@ class Question extends Component {
 		options_visible: false,
 		time: 20,
 		isActive: false,
+		timeUp:false
 	};
 
 	componentDidMount() {
@@ -31,6 +32,7 @@ class Question extends Component {
 			question_no: 0,
 			options_visible: false,
 			time: 20,
+			timeUp: false
 		});
 	}
 
@@ -91,17 +93,19 @@ class Question extends Component {
 			optionC: '2',
 			optionD: '2',
 			option_choice_no: 0,
+			timeUp:false
 		});
 		if (this.state.question_no < 1) {
 			this.setState({
 				question_no: this.state.question_no + 1,
 			});
-		} //else if (this.state.group_no < 2) {
-		// 	this.setState({
-		// 		question_no: 0,
-		// 		group_no: this.state.group_no + 1,
-		// 	});
-		// }
+			
+		} // else if (this.state.group_no < 2) {
+		//  	this.setState({
+		//  		question_no: 0,
+		//  		group_no: this.state.group_no + 1,
+		//  	});
+		//  }
 	};
 
 	checkAnswer = (e) => {
@@ -177,8 +181,11 @@ class Question extends Component {
 
 	setMCQTimeout = () => {
 		if (this.state.time === 0) {
-			const questionBox = document.getElementById('question_box');
-			questionBox.innerHTML = '<h1>TIME UP</h1>';
+			// const questionBox = document.getElementById('question_box');
+			// questionBox.innerHTML = '<h1>TIME UP</h1>';
+			this.setState({
+				timeUp:true
+			})
 			this.displayCorrectOption();
 			this.wrongaudioplayer.play();
 		}
@@ -193,6 +200,7 @@ class Question extends Component {
 			optionB,
 			optionC,
 			optionD,
+			timeUp,
 		} = this.state;
 		const [optionTextA, optionTextB, optionTextC, optionTextD] = questions[
 			choice_no
@@ -205,12 +213,20 @@ class Question extends Component {
 					backLink='/main/teams'
 					showBack={false}
 				/>
-				<QuestionBox
+				
+				{!timeUp && (<QuestionBox
 					style={{
 						fontSize: '2.9rem',
 					}}
 					question={questions[choice_no][group_no][question_no].question}
-				/>
+				/>)}
+				{timeUp && (<QuestionBox
+					style={{
+						fontSize: '2.9rem',
+					}}
+					question='Time Up!'
+				/>)}
+
 				<div className='inline-grid-9'>
 					<Link to='/main/teams' style={{ color: 'white' }}>
 						<i

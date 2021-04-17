@@ -10,6 +10,8 @@ import audio3 from '../../assets/audio/3.mp3';
 import audio4 from '../../assets/audio/4.mp3';
 import audio5 from '../../assets/audio/5.mp3';
 import audio6 from '../../assets/audio/6.mp3';
+import audio7 from '../../assets/audio/7.mp3';
+import audio8 from '../../assets/audio/7.mp3';
 import correctaudio from '../../assets/audio/mcq/correctsound.wav';
 import wrongaudio from '../../assets/audio/mcq/wrongsound.wav';
 
@@ -25,7 +27,7 @@ const AudioQuestion = (props) => {
 		setModalText({ title, body });
 		setModalShow(true);
 	};
-	const audio = [audio1, audio2, audio3, audio4, audio5, audio6];
+	const audio = [audio1, audio2, audio3, audio4, audio5, audio6, audio7, audio8];
 	let sound = null;
 
 	const startTimer = () => {
