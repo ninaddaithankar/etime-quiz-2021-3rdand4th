@@ -11,7 +11,7 @@ const MixedBagQuestion = props => {
 	const choice = props.match.params.choice_no - 1;
 	const [modalText, setModalText] = useState({ title: '', body: '' });
 	const [modalShow, setModalShow] = useState(false);
-	const [time, setTime] = useState(30);
+	const [time, setTime] = useState(25);
 	const [isActive, setIsActive] = useState(false);
 	let sound = null;
 
